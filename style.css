@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+.hide {
+    display: none;
+}
+
 #game_background {
     background-image: url(grafik/Baggrund.svg);
     background-size: cover;
@@ -32,18 +36,190 @@ body {
     left: 40vw;
 }
 
-#kat_right {
+
+/*KATTE DER KOMMER IND FRA VENSTE*/
+
+#kat_right1 {
     background-image: url(grafik/Kat%20mod%20h%C3%B8jre.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 23vw;
     height: 17vw;
     position: absolute;
-    bottom: 25vw;
-    left: 20vw;
+    bottom: 40vw;
+    left: -20vw;
 }
 
-#wetkat_left {
+.kr1_komind {
+    animation-name: kr1_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kr1_komind {
+    0% {
+        transform: rotate(10deg) translate(-20vw, -10vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(30deg) translate(60vw, -5vw) scale(1);
+    }
+}
+
+#kat_right2 {
+    background-image: url(grafik/Kat%20mod%20h%C3%B8jre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 20vw;
+    left: -2vw;
+}
+
+.kr2_komind {
+    animation-name: kr2_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kr2_komind {
+    0% {
+        transform: rotate(-10deg) translate(-60vw, -15vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(0deg) translate(30vw, 10vw) scale(1);
+    }
+}
+
+#kat_right3 {
+    background-image: url(grafik/Kat%20mod%20h%C3%B8jre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 0vw;
+    left: -20vw;
+}
+
+.kr3_komind {
+    animation-name: kr3_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kr3_komind {
+    0% {
+        transform: rotate(-20deg) translate(-60vw, -20vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(-20deg) translate(45vw, 18vw) scale(1);
+    }
+}
+
+
+/*KATTE DER KOMMER IND FRA HØJRE*/
+
+#kat_left1 {
+    background-image: url(grafik/Kat%20mod%20venstre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 40vw;
+    right: -20vw;
+}
+
+.kl1_komind {
+    animation-name: kl1_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kl1_komind {
+    0% {
+        transform: rotate(-10deg) translate(20vw, -10vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(-30deg) translate(-64vw, -8vw) scale(1);
+    }
+}
+
+#kat_left2 {
+    background-image: url(grafik/Kat%20mod%20venstre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 20vw;
+    right: -2vw;
+}
+
+.kl2_komind {
+    animation-name: kl2_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kl2_komind {
+    0% {
+        transform: rotate(0deg) translate(50vw, -15vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(-10deg) translate(-35vw, 5vw) scale(1);
+    }
+}
+
+#kat_left3 {
+    background-image: url(grafik/Kat%20mod%20venstre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 0vw;
+    right: -20vw;
+}
+
+.kl3_komind {
+    animation-name: kl3_komind;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes kl3_komind {
+    0% {
+        transform: rotate(20deg) translate(60vw, -20vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(20deg) translate(-45vw, 18vw) scale(1);
+    }
+}
+
+
+/*VÅDEKATTE*/
+
+#wetkat_left1 {
     background-image: url(grafik/Kat%20v%C3%A5d%20-%20mod%20h%C3%B8jre.svg);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -54,6 +230,29 @@ body {
     right: 14vw;
 }
 
+.wkl1_komind {
+    animation-name: wkl_komind;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wkl_komind {
+    0% {
+        transform: translate(0vw, 0vw) scale(1);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: translate(0vw, 30vw) scale(1);
+        opacity: 0;
+    }
+}
+
+
+
+
+
 #ost {
     background-image: url(grafik/Ost.svg);
     background-repeat: no-repeat;
@@ -63,6 +262,24 @@ body {
     position: absolute;
     bottom: 27vw;
     left: 42vw;
+    z-index: -1;
+}
+
+.ost_forsvind {
+    animation-name: ost_forsvind;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ost_forsvind {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(0);
+
+    }
 }
 
 #ost2 {
@@ -74,6 +291,7 @@ body {
     position: absolute;
     bottom: 3vw;
     left: 24vw;
+    z-index: -1;
 }
 
 #game_ui {
@@ -89,6 +307,55 @@ body {
     position: absolute;
     bottom: 7vw;
     right: 17vw;
+}
+
+.plus {
+    animation-name: plus;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes plus {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+
+#minus_points {
+    background-image: url(grafik/Minus%20point.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    top: -38vw;
+    left: 40vw;
+    z-index: 1;
+}
+
+.minus {
+    animation-name: minus;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes minus {
+    0% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 }
 
 #energi {
@@ -122,56 +389,58 @@ body {
     position: absolute;
     bottom: 50vw;
     left: 0vw;
+    z-index: 8;
 }
 
 #start {
-    display: none;
     background-image: url(grafik/Titelsk%C3%A6rm.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 80vw;
-    height: 45vw;
-    position: relative;
+    width: 100vw;
+    height: 56.25vw;
+    position: absolute;
     margin: auto;
-    z-index: +1;
-    bottom: 45vw
+    z-index: 6;
+    overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 #settings {
-    display: none;
-    background-image: url(grafik/Settingsmenu.svg);
+    background-image: url(grafik/Settingssk%C3%A6rm.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 59vw;
-    height: 35vw;
+    width: 100vw;
+    height: 56.25vw;
     position: absolute;
-    bottom: 14vw;
-    left: 19vw;
-    z-index: +1;
+    margin: auto;
+    z-index: 7;
+    top: 0;
+    left: 0;
+
 }
 
 #gameover {
-    display: none;
     background-image: url(grafik/Game%20over%20sk%C3%A6rm.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 60vw;
-    height: 35vw;
+    width: 70vw;
+    height: 40vw;
     position: absolute;
-    bottom: 14vw;
-    left: 19vw;
+    bottom: 9vw;
+    left: 16vw;
     z-index: +1;
 }
 
+
 #levelcomplete {
-    display: none;
     background-image: url(grafik/Win%20sk%C3%A6rm.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 60vw;
-    height: 35vw;
+    width: 70vw;
+    height: 40vw;
     position: absolute;
-    bottom: 14vw;
-    left: 19vw;
+    bottom: 9vw;
+    left: 16vw;
     z-index: +1;
 }

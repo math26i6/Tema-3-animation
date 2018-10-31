@@ -54,8 +54,9 @@ body {
 .kr1_komind {
     animation-name: kr1_komind;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-fill-mode: both;
 }
 
 @keyframes kr1_komind {
@@ -83,8 +84,29 @@ body {
 .kr2_komind {
     animation-name: kr2_komind;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes kr2_komind {
+    0% {
+        transform: rotate(-10deg) translate(-60vw, -15vw) scale(1);
+
+    }
+
+    100% {
+        transform: rotate(0deg) translate(30vw, 10vw) scale(1);
+    }
+}
+
+.kr2_komind_paused {
+    animation-name: kr2_komind;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-play-state: paused;
 }
 
 @keyframes kr2_komind {
@@ -220,7 +242,7 @@ body {
 
 /*VÅDEKATTE*/
 
-#wetkat_left1 {
+#wetkat_left {
     background-image: url(grafik/Kat%20v%C3%A5d%20-%20mod%20h%C3%B8jre.svg);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -250,7 +272,35 @@ body {
     }
 }
 
+#wetkat_right {
+    background-image: url(grafik/Kat%20v%C3%A5d%20-%20mod%20venstre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+    bottom: 9vw;
+    left: 14vw;
+}
 
+.wkr1_komind {
+    animation-name: wkr_komind;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wkr_komind {
+    0% {
+        transform: translate(0vw, 0vw) scale(1);
+        opacity: 1;
+
+    }
+
+    100% {
+        transform: translate(0vw, 30vw) scale(1);
+        opacity: 0;
+    }
+}
 
 
 
@@ -263,6 +313,18 @@ body {
     position: absolute;
     bottom: 27vw;
     left: 42vw;
+    z-index: -1;
+}
+
+#ost2 {
+    background-image: url(grafik/Ost.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 3vw;
+    left: 24vw;
     z-index: -1;
 }
 
@@ -283,17 +345,23 @@ body {
     }
 }
 
-#ost2 {
-    background-image: url(grafik/Ost.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 10vw;
-    height: 10vw;
-    position: absolute;
-    bottom: 3vw;
-    left: 24vw;
-    z-index: -1;
+.ost_komind {
+    animation-name: ost_komind;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
+
+@keyframes ost_komind {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(10vw);
+    }
+}
+
+
 
 #game_ui {
     position: relative;
@@ -458,6 +526,30 @@ body {
 
 }
 
+#intro {
+    background-image: url(grafik/Intro.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 75vw;
+    height: 42vw;
+    position: absolute;
+    bottom: 7vw;
+    left: 13vw;
+    z-index: +1;
+}
+
+#introplayknap {
+    background-image: url(grafik/Intro%20play%20knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 25vw;
+    height: 20vw;
+    position: absolute;
+    bottom: -1vw;
+    left: 54vw;
+    z-index: 1;
+}
+
 #settings {
     background-image: url(grafik/Settingssk%C3%A6rm.svg);
     background-repeat: no-repeat;
@@ -472,6 +564,68 @@ body {
 
 
 }
+
+#lydknap {
+    background-image: url(grafik/Lyd%20knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 13vw;
+    height: 14vw;
+    position: absolute;
+    bottom: 12vw;
+    left: 56vw;
+    z-index: 8;
+
+}
+
+#mutelydknap {
+    background-image: url(grafik/Lyd%20knap%20slukket.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 13vw;
+    height: 14vw;
+    position: absolute;
+    bottom: 12vw;
+    left: 56vw;
+    z-index: 8;
+}
+
+#musikknap {
+    background-image: url(grafik/Musik%20knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 13vw;
+    height: 14vw;
+    position: absolute;
+    bottom: 12vw;
+    left: 31vw;
+    z-index: 8;
+}
+
+#mutemusikknap {
+    background-image: url(grafik/Musik%20knap%20slukket.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 13vw;
+    height: 14vw;
+    position: absolute;
+    bottom: 12.65vw;
+    left: 31.3vw;
+    z-index: 8;
+}
+
+#luk {
+    background-image: url(grafik/lukke%20knap.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 6vw;
+    height: 5vw;
+    position: absolute;
+    bottom: 34.7vw;
+    left: 26.7vw;
+    z-index: 8;
+}
+
 
 #gameover {
     background-image: url(grafik/Game%20over%20sk%C3%A6rm.svg);

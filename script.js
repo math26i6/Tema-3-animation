@@ -1,3 +1,5 @@
+let score = 0;
+
 window.addEventListener("load", sidenVises);
 
 function sidenVises() {
@@ -45,6 +47,8 @@ function muteMusik() {
 
     document.querySelector("#musikknap").classList.add("hide");
 
+
+
 }
 
 function unmuteMusik() {
@@ -53,6 +57,8 @@ function unmuteMusik() {
     document.querySelector("#mutemusikknap").classList.add("hide");
 
     document.querySelector("#musikknap").classList.remove("hide");
+
+
 
 }
 
@@ -64,6 +70,7 @@ function muteLyd() {
 
     document.querySelector("#lydknap").classList.add("hide");
 
+
 }
 
 function unmuteLyd() {
@@ -73,12 +80,24 @@ function unmuteLyd() {
 
     document.querySelector("#lydknap").classList.remove("hide");
 
+
+
 }
 
 function closeSettings() {
     console.log("close settings")
 
     document.querySelector("#settings").classList.add("hide");
+
+    document.querySelector("#musikknap").removeEventListener("click", muteMusik);
+
+    document.querySelector("#mutemusikknap").removeEventListener("click", unmuteMusik);
+
+    document.querySelector("#lydknap").removeEventListener("click", muteLyd);
+
+    document.querySelector("#mutelydknap").removeEventListener("click", unmuteLyd);
+
+    document.querySelector("#luk").removeEventListener("click", closeSettings);
 
     showStart();
 }
@@ -108,19 +127,110 @@ function startGame() {
 
     document.querySelector("#start").classList.add("hide");
 
-    document.querySelector("#kat_right2").classList.add("kr2_komind");
 
+    document.querySelector("#kat_right1").addEventListener("click", clickKat);
+    document.querySelector("#kat_right1").classList.add("kr1_komind");
+    document.querySelector("#kat_right1").addEventListener("animationend", clickKat);
+
+    //    document.querySelector("#kat_right1").addEventListener("animationend", endKat);
+
+
+    document.querySelector("#kat_right2").classList.add("kr2_komind")
     document.querySelector("#kat_right2").addEventListener("click", clickKat);
-
     document.querySelector("#kat_right2").addEventListener("animationend", clickKat);
+    //    document.querySelector("#kat_right2").addEventListener("animationend", startKat);
+
+    document.querySelector("#kat_right3").classList.add("kr3_komind")
+    document.querySelector("#kat_right3").addEventListener("click", clickKat);
+    document.querySelector("#kat_right3").addEventListener("animationend", clickKat);
+
+    document.querySelector("#kat_left1").classList.add("kl1_komind")
+    document.querySelector("#kat_left1").addEventListener("click", clickKat);
+    document.querySelector("#kat_left1").addEventListener("animationend", clickKat);
+
+    document.querySelector("#kat_left2").classList.add("kl2_komind")
+    document.querySelector("#kat_left2").addEventListener("click", clickKat);
+    document.querySelector("#kat_left2").addEventListener("animationend", clickKat);
+
+    document.querySelector("#kat_left3").classList.add("kl3_komind")
+    document.querySelector("#kat_left3").addEventListener("click", clickKat);
+    document.querySelector("#kat_left3").addEventListener("animationend", clickKat);
+
+    document.querySelector("#ost").classList.add("ost_komind");
+    document.querySelector("#ost").addEventListener("click", clickOst);
+
 
 }
 
+////function endKat() {
+////
+////    console.log("slut animation");
+////
+////    document.querySelector("#kat_right1").removeEventListener("animationend", endKat);
+////    document.querySelector("#kat_right1").classList.add("fade_out");
+////    document.querySelector("#kat_right1").classList.remove("kr1_komind");
+////    document.querySelector("#kat_right1").addEventListener("animationend", startKat);
+////
+////}
+////
+////
+////
+////
+////function startKat() {
+////
+////    console.log("restart animation")
+////
+////    document.querySelector("#kat_right1").removeEventListener("animationend", startKat);
+////
+////    document.querySelector("#kat_right1").classList.add("kr1_komind");
+////
+////    document.querySelector("#kat_right1").classList.remove("hide");
+////
+////    document.querySelector("#kat_right1").addEventListener("animationend", endKat);
+//
+//}
+
+
+
 function clickKat() {
-    console.log("kat klikket")
+    console.log("kat klikket");
 
-    document.querySelector("#kat_right2").classList.add("kr2_komind_paused");
+    score++;
+    console.log(score);
 
-    document.querySelector("#kat_right2").classList.add("hide");
+    document.querySelector("#score").innerHTML = "score: " + score;
+
+    console.log(this);
+
+    document.querySelector("#points").classList.add("plus");
+
+    this.classList.add("hide");
+
+    this.removeEventListener("click", clickKat);
+
+}
+
+function clickOst() {
+    console.log("ost klikket");
+
+    score--;
+    console.log(score);
+
+    document.querySelector("#score").innerHTML = "score: " + score;
+
+    console.log(this);
+
+    document.querySelector("#minus_points").classList.remove("hide");
+
+    document.querySelector("#minus_points").classList.add("minus");
+
+    document.querySelector("#ost").removeEventListener("click", clickOst);
+
+    document.querySelector("#ost").classList.add("ost_forsvind");
+
+
+    this.classList.add("hide");
+
+    this.removeEventListener("click", clickOst);
 
 }

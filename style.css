@@ -429,8 +429,63 @@ body {
     }
 }
 
-#energi {
+.energi {
+    background-image: url(grafik/Ostemeter%201.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 46vw;
+    right: 0vw;
+}
+
+.energi1 {
     background-image: url(grafik/Ostemeter%202.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 46vw;
+    right: 0vw;
+}
+
+.energi2 {
+    background-image: url(grafik/Ostemeter%203.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 46vw;
+    right: 0vw;
+}
+
+.energi3 {
+    background-image: url(grafik/Ostemeter%204.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 46vw;
+    right: 0vw;
+}
+
+.energi4 {
+    background-image: url(grafik/Ostemeter%205.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 30vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 46vw;
+    right: 0vw;
+}
+
+.energi5 {
+    background-image: url(grafik/Ostemeter%206.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 30vw;
@@ -513,6 +568,15 @@ body {
     }
 }
 
+#score {
+    position: absolute;
+    left: 60vw;
+    bottom: 33.4vw;
+    font-size: 1.7rem;
+    color: rgba(0, 0, 0, 0.63);
+    z-index: 9;
+    font-family: luckiest guy;
+}
 
 #play {
     background-image: url(grafik/Play%20knap.svg);

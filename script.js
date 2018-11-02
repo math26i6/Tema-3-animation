@@ -1,4 +1,6 @@
 let score = 0;
+let life = 6;
+let timeLeft = 10;
 
 window.addEventListener("load", sidenVises);
 
@@ -130,36 +132,33 @@ function startGame() {
 
     document.querySelector("#kat_right1").addEventListener("click", clickKat);
     document.querySelector("#kat_right1").classList.add("kr1_komind");
-    document.querySelector("#kat_right1").addEventListener("animationend", clickKat);
+    //    document.querySelector("#energi").addEventListener("click", clickKat);
+
 
     //    document.querySelector("#kat_right1").addEventListener("animationend", endKat);
 
 
     document.querySelector("#kat_right2").classList.add("kr2_komind")
     document.querySelector("#kat_right2").addEventListener("click", clickKat);
-    document.querySelector("#kat_right2").addEventListener("animationend", clickKat);
     //    document.querySelector("#kat_right2").addEventListener("animationend", startKat);
 
     document.querySelector("#kat_right3").classList.add("kr3_komind")
     document.querySelector("#kat_right3").addEventListener("click", clickKat);
-    document.querySelector("#kat_right3").addEventListener("animationend", clickKat);
 
     document.querySelector("#kat_left1").classList.add("kl1_komind")
     document.querySelector("#kat_left1").addEventListener("click", clickKat);
-    document.querySelector("#kat_left1").addEventListener("animationend", clickKat);
 
     document.querySelector("#kat_left2").classList.add("kl2_komind")
     document.querySelector("#kat_left2").addEventListener("click", clickKat);
-    document.querySelector("#kat_left2").addEventListener("animationend", clickKat);
 
     document.querySelector("#kat_left3").classList.add("kl3_komind")
     document.querySelector("#kat_left3").addEventListener("click", clickKat);
-    document.querySelector("#kat_left3").addEventListener("animationend", clickKat);
 
     document.querySelector("#ost").classList.add("ost_komind");
     document.querySelector("#ost").addEventListener("click", clickOst);
 
 
+    timeLeftFc();
 }
 
 ////function endKat() {
@@ -193,22 +192,34 @@ function startGame() {
 
 
 function clickKat() {
-    console.log("kat klikket");
 
-    score++;
-    console.log(score);
+    if (this.classList.contains("kat")) {
+        console.log("kat klikket");
 
-    document.querySelector("#score").innerHTML = "score: " + score;
+        score++;
+        console.log(score);
 
-    console.log(this);
+        document.querySelector("#score").innerHTML = score;
 
-    document.querySelector("#points").classList.add("plus");
+        console.log(this);
 
-    this.classList.add("hide");
+        this.classList.add("hide");
 
-    this.removeEventListener("click", clickKat);
+        this.removeEventListener("click", clickKat);
+
+        this.addEventListener("animationend", clickKat);
+    } else if (this.classList.contains("#kat")) {
+        console.log("mistet liv");
+
+
+        document.querySelector("#energi" + life).classList.add("hide");
+        life--;
+        console.log(life);
+    }
 
 }
+
+function katGone() {}
 
 function clickOst() {
     console.log("ost klikket");
@@ -216,7 +227,7 @@ function clickOst() {
     score--;
     console.log(score);
 
-    document.querySelector("#score").innerHTML = "score: " + score;
+    document.querySelector("#score").innerHTML = score;
 
     console.log(this);
 
@@ -233,4 +244,39 @@ function clickOst() {
 
     this.removeEventListener("click", clickOst);
 
+    //    document.querySelector("#energi" + life).classList.add("hide");
+    //    console.log("lose life");
+    //    life--;
+    //    console.log(life);
+    //
+    //
+    //
+    //    }
+}
+
+function ostGone() {}
+
+
+
+
+function timeLeftFc() {
+    console.log("timeLeftFc timeleft er" + timeLeft);
+    if (timeLeft > 0) {
+
+        timeLeft--;
+        setTimeout(timeLeftFc, 1000);
+    } else {
+
+        levelComplete();
+    }
+}
+
+function gameOver() {}
+
+function levelComplete() {
+    console.log("level complete");
+
+    document.querySelector("#levelcomplete").classList.remove("hide");
+
+    document.querySelector("#score").classList.remove("hide");
 }

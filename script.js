@@ -1,6 +1,8 @@
 let score = 0;
 let life = 6;
 let timeLeft = 10;
+let showSettingsEffektSound = true;
+let showSettingsMusic = true;
 
 window.addEventListener("load", sidenVises);
 
@@ -15,13 +17,22 @@ function sidenVises() {
 function showStart() {
     console.log("show start");
 
+    document.querySelector("#levelcomplete").classList.add("hide");
+    document.querySelector("#gameover").classList.add("hide");
+    document.querySelector("#score").classList.add("hide");
+
+    document.querySelector("#spiligen").classList.add("hide");
+
     document.querySelector("#start").classList.remove("hide");
 
     document.querySelector("#play").classList.add("pulse");
+    document.querySelector("#play").classList.remove("hide");
 
     document.querySelector("#play").addEventListener("click", hideStart);
 
     document.querySelector("#indstillinger").addEventListener("click", showSettings);
+
+    document.querySelector("#play").addEventListener("click", toggleMusic);
 }
 
 function showSettings() {
@@ -116,7 +127,38 @@ function hideStart() {
 
     document.querySelector("#play").classList.add("fade_out");
 
-    document.querySelector("#start").addEventListener("animationend", startGame);
+    document.querySelector("#play").classList.add("hide");
+
+    document.querySelector("#start").addEventListener("animationend", showIntro);
+}
+
+
+function showIntro() {
+    console.log("show intro");
+
+
+    document.querySelector("#intro").classList.remove("hide");
+
+    document.querySelector("#introplayknap").classList.remove("hide");
+
+    document.querySelector("#introplayknap").addEventListener("click", hideIntro);
+
+
+
+
+
+}
+
+function hideIntro() {
+    console.log("hideIntro");
+
+    document.querySelector("#introplayknap").removeEventListener("click", hideIntro);
+
+    document.querySelector("#intro").classList.add("fade_out");
+
+    document.querySelector("#introplayknap").classList.add("hide");
+
+    document.querySelector("#intro").addEventListener("animationend", startGame);
 }
 
 function startGame() {
@@ -128,29 +170,32 @@ function startGame() {
     document.querySelector("#start").classList.remove("fade_out");
 
     document.querySelector("#start").classList.add("hide");
+    document.querySelector("#intro").classList.add("hide");
+
+
 
 
     document.querySelector("#kat_right1").addEventListener("click", clickKat);
+    document.querySelector("#kat_right1").addEventListener("animationend", gameOver);
     document.querySelector("#kat_right1").classList.add("kr1_komind");
-    //    document.querySelector("#energi").addEventListener("click", clickKat);
 
-
-    //    document.querySelector("#kat_right1").addEventListener("animationend", endKat);
-
-
+    document.querySelector("#kat_right2").addEventListener("animationend", gameOver);
     document.querySelector("#kat_right2").classList.add("kr2_komind")
     document.querySelector("#kat_right2").addEventListener("click", clickKat);
-    //    document.querySelector("#kat_right2").addEventListener("animationend", startKat);
 
+    document.querySelector("#kat_right3").addEventListener("animationend", gameOver);
     document.querySelector("#kat_right3").classList.add("kr3_komind")
     document.querySelector("#kat_right3").addEventListener("click", clickKat);
 
+    document.querySelector("#kat_left1").addEventListener("animationend", gameOver);
     document.querySelector("#kat_left1").classList.add("kl1_komind")
     document.querySelector("#kat_left1").addEventListener("click", clickKat);
 
+    document.querySelector("#kat_left2").addEventListener("animationend", gameOver);
     document.querySelector("#kat_left2").classList.add("kl2_komind")
     document.querySelector("#kat_left2").addEventListener("click", clickKat);
 
+    document.querySelector("#kat_left3").addEventListener("animationend", gameOver);
     document.querySelector("#kat_left3").classList.add("kl3_komind")
     document.querySelector("#kat_left3").addEventListener("click", clickKat);
 
@@ -207,17 +252,25 @@ function clickKat() {
 
         this.removeEventListener("click", clickKat);
 
+        this.classList.contains("kat");
+
+        document.querySelector("#lyd1").currentTime = 0;
+        document.querySelector("#lyd1").play();
+
         this.addEventListener("animationend", clickKat);
-    } else if (this.classList.contains("#kat")) {
-        console.log("mistet liv");
+    } else if (this.classList.contains("kat")) {
+
+        console.log("du har klikket på en giftig svamp");
 
 
         document.querySelector("#energi" + life).classList.add("hide");
         life--;
-        console.log(life);
     }
-
+    //    mist energi/liv ved klik på kat
+    //    start ny animation
 }
+
+
 
 function katGone() {}
 
@@ -244,14 +297,7 @@ function clickOst() {
 
     this.removeEventListener("click", clickOst);
 
-    //    document.querySelector("#energi" + life).classList.add("hide");
-    //    console.log("lose life");
-    //    life--;
-    //    console.log(life);
-    //
-    //
-    //
-    //    }
+    //    få energi
 }
 
 function ostGone() {}
@@ -270,13 +316,111 @@ function timeLeftFc() {
         levelComplete();
     }
 }
+//Hvordan stopper man tiden
 
-function gameOver() {}
+function gameStatus() {
+    console.log("gamestatus life er" + life);
+    (life == 0)
+    gameOver();
+}
+
+
+function gameOver() {
+
+    console.log("GAMEOVER");
+
+    document.querySelector("#gameover").classList.remove("hide");
+
+    document.querySelector("#spiligen").classList.remove("hide");
+
+    document.querySelector("#spiligen").addEventListener("click", sidenVises);
+
+
+}
 
 function levelComplete() {
     console.log("level complete");
 
     document.querySelector("#levelcomplete").classList.remove("hide");
 
+    document.querySelector("#spiligen").classList.remove("hide");
+
+    document.querySelector("#spiligen").addEventListener("click", sidenVises);
+
     document.querySelector("#score").classList.remove("hide");
+}
+
+//Hvorfor går den alt igennem
+
+
+function toggleSounds() {
+
+    console.log("toggleSounds");
+
+    //        document.querySelector("#sfx").classList.remove("on");
+
+    if (showSettingsEffektSound == true) {
+        console.log("true");
+        showSettingsEffektSound = false;
+        soundsOn();
+    } else {
+        console.log("false");
+        showSettingsEffektSound = true;
+        soundsOff();
+
+    }
+
+}
+
+function soundsOff() {
+    console.log("sounds off");
+    document.querySelector("#lyd").classList.add("mutelydknap");
+    document.querySelector("#lyd1").muted = true;
+    document.querySelector("#lyd2").muted = true;
+
+}
+
+function soundsOn() {
+    console.log("sounds on");
+    document.querySelector("#lyd").classList.remove("lydknap");
+    document.querySelector("#lyd1").muted = false;
+    document.querySelector("#lyd2").muted = false;
+
+}
+
+function toggleMusic() {
+    console.log("toggleMusic");
+
+    document.querySelector("#myMusic").play();
+
+    if (showSettingsMusic == true) {
+        console.log("true");
+        showSettingsMusic = false;
+        musicOn();
+    } else {
+        console.log("false");
+        showSettingsMusic = true;
+        musicOff();
+
+    }
+}
+
+function musicOff() {
+    console.log("mute musik");
+
+    document.querySelector("#mutemusikknap").classList.remove("hide");
+
+    document.querySelector("#musikknap").classList.add("hide");
+
+    document.querySelector("#myMusic").pause();
+
+
+
+}
+
+function musicOn() {
+    console.log("music on");
+
+    document.querySelector("#myMusic").play();
+    document.querySelector("#music").classList.remove("off");
 }

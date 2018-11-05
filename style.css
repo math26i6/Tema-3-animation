@@ -19,7 +19,6 @@ body {
     width: 100%;
     height: 56.25vw;
     position: relative;
-    z-index: -2;
     overflow: hidden;
 
 }
@@ -324,7 +323,6 @@ body {
     position: absolute;
     bottom: 3vw;
     left: 24vw;
-    z-index: -1;
 }
 
 .ost_forsvind {
@@ -407,7 +405,6 @@ body {
     position: absolute;
     top: -38vw;
     left: 40vw;
-    z-index: -1;
 }
 
 .minus {
@@ -515,7 +512,7 @@ body {
     position: absolute;
     bottom: 50vw;
     left: 0vw;
-    z-index: 8;
+    z-index: 1;
 }
 
 #start {
@@ -526,7 +523,6 @@ body {
     height: 56.25vw;
     position: absolute;
     margin: auto;
-    z-index: 6;
     overflow: hidden;
     top: 0;
     left: 0;
@@ -574,8 +570,8 @@ body {
     bottom: 33.4vw;
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.63);
-    z-index: 9;
     font-family: luckiest guy;
+    z-index: 1;
 }
 
 #play {
@@ -586,7 +582,6 @@ body {
     height: 20vw;
     position: absolute;
     top: 38vw;
-    z-index: 7;
     left: 35vw;
     cursor: pointer;
 
@@ -601,7 +596,6 @@ body {
     position: absolute;
     bottom: 7vw;
     left: 13vw;
-    z-index: +1;
 }
 
 #introplayknap {
@@ -611,9 +605,9 @@ body {
     width: 25vw;
     height: 20vw;
     position: absolute;
-    bottom: -1vw;
-    left: 54vw;
-    z-index: 1;
+    bottom: 5vw;
+    right: 15vw;
+    cursor: pointer;
 }
 
 #settings {
@@ -624,7 +618,6 @@ body {
     height: 56.25vw;
     position: absolute;
     margin: auto;
-    z-index: 7;
     top: 0;
     left: 0;
 
@@ -640,7 +633,6 @@ body {
     position: absolute;
     bottom: 12vw;
     left: 56vw;
-    z-index: 8;
 
 }
 
@@ -653,7 +645,6 @@ body {
     position: absolute;
     bottom: 12vw;
     left: 56vw;
-    z-index: 8;
 }
 
 #musikknap {
@@ -665,7 +656,6 @@ body {
     position: absolute;
     bottom: 12vw;
     left: 31vw;
-    z-index: 8;
 }
 
 #mutemusikknap {
@@ -677,7 +667,6 @@ body {
     position: absolute;
     bottom: 12.65vw;
     left: 31.3vw;
-    z-index: 8;
 }
 
 #luk {
@@ -689,7 +678,6 @@ body {
     position: absolute;
     bottom: 34.7vw;
     left: 26.7vw;
-    z-index: 8;
 }
 
 
@@ -702,7 +690,6 @@ body {
     position: absolute;
     bottom: 9vw;
     left: 16vw;
-    z-index: +1;
 }
 
 
@@ -715,5 +702,15 @@ body {
     position: absolute;
     bottom: 9vw;
     left: 16vw;
-    z-index: +1;
+}
+
+#spiligen {
+    background-image: url(grafik/Spil%20igen.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 15vw;
+    height: 14vw;
+    position: absolute;
+    bottom: 8vw;
+    right: 13vw;
 }

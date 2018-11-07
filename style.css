@@ -57,6 +57,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 1s;
 }
 
 @keyframes kr1_komind {
@@ -69,6 +70,35 @@ body {
         transform: rotate(35deg) translate(64vw, -15vw) scale(1);
     }
 }
+
+/*
+.pos1 {
+    bottom: 40vw;
+    left: -25vw;
+}
+
+.type1 {
+    background-image: url(grafik/Kat%20mod%20h%C3%B8jre.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 23vw;
+    height: 17vw;
+    position: absolute;
+}
+
+.ani1 {
+    @keyframes kr1_komind {
+        0% {
+            transform: rotate(0deg) translate(-20vw, -10vw) scale(1);
+
+        }
+
+        100% {
+            transform: rotate(35deg) translate(64vw, -15vw) scale(1);
+        }
+    }
+}
+*/
 
 #kat_right2 {
     background-image: url(grafik/Kat%20mod%20h%C3%B8jre.svg);
@@ -86,6 +116,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 2;
 }
 
 @keyframes kr2_komind {
@@ -135,6 +166,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 3s;
 }
 
 @keyframes kr3_komind {
@@ -167,6 +199,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 3s;
 }
 
 @keyframes kl1_komind {
@@ -196,6 +229,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 2s;
 }
 
 @keyframes kl2_komind {
@@ -225,6 +259,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 1s;
 }
 
 @keyframes kl3_komind {
@@ -329,6 +364,7 @@ body {
     animation-name: ost_forsvind;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
+
 }
 
 @keyframes ost_forsvind {
@@ -493,10 +529,11 @@ body {
 }
 
 #time {
-    background-image: url(grafik/timer.svg);
+    font-family: luckiest guy;
+    font-size: 1.8rem;
     background-repeat: no-repeat;
     background-size: 100%;
-    width: 15vw;
+    width: 20vw;
     height: 10vw;
     position: absolute;
     bottom: 46vw;

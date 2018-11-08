@@ -17,7 +17,7 @@ function sidenVises() {
 
 function showStart() {
     console.log("show start");
-
+    document.querySelector("#cool").classList.add("coolstjerne");
     document.querySelector("#levelcomplete").classList.add("hide");
     document.querySelector("#gameover").classList.add("hide");
     document.querySelector("#score").classList.add("hide");
@@ -34,15 +34,18 @@ function showStart() {
     document.querySelector("#indstillinger").addEventListener("click", showSettings);
     //    document.querySelector("#indstillinger").addEventListener("click", toggleMusic);
 
-//    toggleMusic();
+    //    toggleMusic();
 
-        document.querySelector("#play").addEventListener("click", toggleMusic);
+    document.querySelector("#play").addEventListener("click", toggleMusic);
 }
 
 function showSettings() {
     console.log("show settings");
 
     document.querySelector("#settings").classList.remove("hide");
+    document.querySelector("#settingsmenu").classList.add("hide");
+
+
 
     document.querySelector("#musikknap").addEventListener("click", muteMusik);
 
@@ -53,8 +56,56 @@ function showSettings() {
     document.querySelector("#mutelydknap").addEventListener("click", unmuteLyd);
 
     document.querySelector("#luk").addEventListener("click", closeSettings);
+}
+
+
+function showIngameSettings() {
+    console.log("show ingame settings");
+
+    document.querySelector("#settings").classList.remove("hide");
+    document.querySelector("#settingsmenu").classList.add("hide");
+
+
+
+    document.querySelector("#musikknap").addEventListener("click", muteMusik);
+
+    document.querySelector("#mutemusikknap").addEventListener("click", unmuteMusik);
+
+    document.querySelector("#lydknap").addEventListener("click", muteLyd);
+
+    document.querySelector("#mutelydknap").addEventListener("click", unmuteLyd);
+
+    document.querySelector("#luk").addEventListener("click", hideIngameSettings);
+    document.querySelector("#kat_right1").classList.remove("kr1_komind");
+    document.querySelector("#kat_right2").classList.remove("kr2_komind");
+    document.querySelector("#kat_right3").classList.remove("kr3_komind");
+    document.querySelector("#kat_left1").classList.remove("kl1_komind");
+    document.querySelector("#kat_left2").classList.remove("kl2_komind");
+    document.querySelector("#kat_left3").classList.remove("kl3_komind");
+    clearTimeout(timeOut);
 
 }
+
+function hideIngameSettings() {
+    console.log("close ingame settings")
+
+    document.querySelector("#settings").classList.add("hide");
+
+    document.querySelector("#musikknap").removeEventListener("click", muteMusik);
+
+    document.querySelector("#mutemusikknap").removeEventListener("click", unmuteMusik);
+
+    document.querySelector("#lydknap").removeEventListener("click", muteLyd);
+
+    document.querySelector("#mutelydknap").removeEventListener("click", unmuteLyd);
+
+    document.querySelector("#luk").removeEventListener("click", hideIngameSettings);
+
+    startGame();
+
+
+}
+
 
 function toggleMusic() {
     console.log("toggleMusic");
@@ -161,6 +212,7 @@ function closeSettings() {
 
     document.querySelector("#luk").removeEventListener("click", closeSettings);
 
+
 }
 
 
@@ -176,7 +228,7 @@ function hideStart() {
 
     document.querySelector("#play").classList.add("hide");
 
-    document.querySelector("#indstillinger").classList.add("hide");
+
 
     document.querySelector("#start").addEventListener("animationend", showIntro);
 }
@@ -185,6 +237,7 @@ function hideStart() {
 function showIntro() {
     console.log("show intro");
 
+    document.querySelector("#cool").classList.add("hide");
 
     document.querySelector("#intro").classList.remove("hide");
 
@@ -207,21 +260,54 @@ function hideIntro() {
 
     document.querySelector("#introplayknap").classList.add("hide");
 
-    document.querySelector("#intro").addEventListener("animationend", startGame);
+    document.querySelector("#intro").addEventListener("animationend", showIntro2);
 }
+
+function showIntro2() {
+    console.log("show intro2");
+
+
+    document.querySelector("#intro2").classList.remove("hide");
+
+    document.querySelector("#introplayknap").classList.remove("hide");
+
+    document.querySelector("#introplayknap").addEventListener("click", hideIntro2);
+
+    document.querySelector("#pil").classList.remove("hide");
+
+}
+
+function hideIntro2() {
+    console.log("hideIntro2");
+
+    document.querySelector("#introplayknap").removeEventListener("click", hideIntro);
+    document.querySelector("#pil").classList.add("fade_out");
+    document.querySelector("#intro2").classList.add("fade_out");
+
+    document.querySelector("#introplayknap").classList.add("hide");
+
+    document.querySelector("#intro2").addEventListener("animationend", startGame);
+
+    document.querySelector("#lyd3").currentTime = 0;
+    document.querySelector("#lyd3").play();
+}
+
+
+
 
 function startGame() {
     console.log("start game");
     console.log("start kat animation");
     console.log("start ost animation");
 
-
+    document.querySelector("#indstillinger").addEventListener("click", showIngameSettings);
     document.querySelector("#start").removeEventListener("animationend", startGame);
 
     document.querySelector("#start").classList.remove("fade_out");
 
     document.querySelector("#start").classList.add("hide");
     document.querySelector("#intro").classList.add("hide");
+    document.querySelector("#intro2").classList.add("hide");
 
     //    document.querySelector("#death1").addEventListener("click", clickKat);
     document.querySelector("#kat_right1").addEventListener("click", clickKat);
@@ -500,6 +586,8 @@ function gameOver() {
 
     console.log("GAMEOVER");
     document.querySelector("#gameover").classList.remove("hide");
+    document.querySelector("#gameover").classList.add("fade_in");
+    document.querySelector("#spiligen").classList.add("fade_in");
 
     document.querySelector("#spiligen").classList.remove("hide");
 
@@ -511,7 +599,14 @@ function gameOver() {
     document.querySelector("#kat_left1").classList.remove("kl1_komind");
     document.querySelector("#kat_left2").classList.remove("kl2_komind");
     document.querySelector("#kat_left3").classList.remove("kl3_komind");
+
+
+    document.querySelector("#gameoverlyd").currentTime = 0;
+    document.querySelector("#gameoverlyd").play();
+
     clearTimeout(timeOut);
+
+
 
 
 
@@ -521,7 +616,8 @@ function levelComplete() {
     console.log("level complete");
 
     document.querySelector("#levelcomplete").classList.remove("hide");
-
+    document.querySelector("#levelcomplete").classList.add("fade_in");
+    document.querySelector("#levelcomplete").classList.add("fade_in");
     document.querySelector("#spiligen").classList.remove("hide");
 
     document.querySelector("#spiligen").addEventListener("click", sidenVises);
@@ -534,4 +630,7 @@ function levelComplete() {
     document.querySelector("#kat_left1").classList.remove("kl1_komind");
     document.querySelector("#kat_left2").classList.remove("kl2_komind");
     document.querySelector("#kat_left3").classList.remove("kl3_komind");
+
+    document.querySelector("#levelcompletelyd").currentTime = 0;
+    document.querySelector("#levelcompletelyd").play();
 }

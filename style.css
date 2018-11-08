@@ -28,14 +28,40 @@ body {
 }
 
 #mus {
-    background-image: url(grafik/Mus.svg);
-    background-repeat: no-repeat;
-    background-size: 65%;
-    width: 27vw;
+    background-image: url(grafik/mus_sprite.svg);
+    display: inline-block;
+    background-size: 500% 100%;
+    width: 20vw;
     height: 20vw;
     position: absolute;
-    bottom: -1.5vw;
+    bottom: -1vw;
     left: 40vw;
+}
+
+.mus {
+    background-position: 0;
+}
+
+.mus_kast {
+    background-position: -400% 0;
+}
+
+.musearm {
+    animation-name: musearm;
+    animation-duration: 0.0001s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: steps(4);
+}
+
+@keyframes musearm {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -400% 0;
+    }
 }
 
 
@@ -360,10 +386,21 @@ body {
     left: 24vw;
 }
 
+#ost3 {
+    background-image: url(grafik/Ost.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 10vw;
+    height: 10vw;
+    position: absolute;
+    bottom: 24vw;
+    right: 4vw;
+}
+
 .ost_forsvind {
     animation-name: ost_forsvind;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
 
 }
 

@@ -32,8 +32,11 @@ function showStart() {
     document.querySelector("#play").addEventListener("click", hideStart);
 
     document.querySelector("#indstillinger").addEventListener("click", showSettings);
+    //    document.querySelector("#indstillinger").addEventListener("click", toggleMusic);
 
-    document.querySelector("#play").addEventListener("click", toggleMusic);
+//    toggleMusic();
+
+        document.querySelector("#play").addEventListener("click", toggleMusic);
 }
 
 function showSettings() {
@@ -50,7 +53,6 @@ function showSettings() {
     document.querySelector("#mutelydknap").addEventListener("click", unmuteLyd);
 
     document.querySelector("#luk").addEventListener("click", closeSettings);
-
 
 }
 
@@ -73,10 +75,6 @@ function toggleMusic() {
 
 function muteMusik() {
     console.log("mute musik");
-
-    document.querySelector("#mutemusikknap").classList.remove("hide");
-
-    document.querySelector("#musikknap").classList.add("hide");
 
     document.querySelector("#mutemusikknap").classList.remove("hide");
 
@@ -225,6 +223,7 @@ function startGame() {
     document.querySelector("#start").classList.add("hide");
     document.querySelector("#intro").classList.add("hide");
 
+    //    document.querySelector("#death1").addEventListener("click", clickKat);
     document.querySelector("#kat_right1").addEventListener("click", clickKat);
     document.querySelector("#kat_right1").addEventListener("click", katGone);
     document.querySelector("#kat_right1").addEventListener("animationend", gameOver);
@@ -266,6 +265,13 @@ function startGame() {
     document.querySelector("#ost2").addEventListener("click", clickOst);
     document.querySelector("#ost2").addEventListener("click", ostGone);
 
+    document.querySelector("#ost3").classList.add("ost_komind");
+    document.querySelector("#ost3").classList.remove("hide")
+    document.querySelector("#ost3").addEventListener("click", clickOst);
+    document.querySelector("#ost3").addEventListener("click", ostGone);
+
+
+
     timeLeft = 30;
     timeLeftFc();
 }
@@ -274,6 +280,12 @@ function startGame() {
 
 function clickKat() {
 
+
+    console.log(this);
+
+    //    this.addEventListener()
+
+    //    if (this.querySelector(".kat").contains("kat")) {
     if (this.classList.contains("kat")) {
         console.log("kat klikket");
 
@@ -282,25 +294,38 @@ function clickKat() {
 
         document.querySelector("#score").innerHTML = score;
 
+        document.querySelector("#mus").classList.remove("mus");
+        document.querySelector("#mus").classList.add("musearm");
+
+
         console.log(this);
 
+        //        this.closest("div div").classList.add("wkr1_komind");
         this.classList.remove("kr1_komind");
         this.classList.remove("kr2_komind");
         this.classList.remove("kr3_komind");
         this.classList.remove("kl1_komind");
         this.classList.remove("kl2_komind");
         this.classList.remove("kl3_komind");
+
         setTimeout(nyKat, 500);
+        setTimeout(nyMus, 300);
 
 
 
         document.querySelector("#lyd1").currentTime = 0;
         document.querySelector("#lyd1").play();
 
-        //sæt våd kat ind?
+        //        //sæt våd kat ind?
+        //
+        //    } else if (this.classList.contains("wkr")); {
+        //        //        this.classList.add("wkr1_komind");
+        //        //
+        //        //        setTimeout(nyKat, 1000);
+        //    }
+
 
     }
-
 }
 
 
@@ -313,14 +338,26 @@ function katGone() {
     }
 }
 
+function nyMus() {
+    console.log("mus kast");
+    document.querySelector("#mus").classList.add("mus");
+    document.querySelector("#mus").classList.remove("musearm");
+}
+
 function nyKat() {
     console.log("ny kat");
     document.querySelector("#kat_right1").classList.add("kr1_komind");
+    //    document.querySelector("#kat_right1").classList.remove("wkr1_komind");
     document.querySelector("#kat_right2").classList.add("kr2_komind");
+    //    document.querySelector("#kat_right2").classList.remove("wkr1_komind");
     document.querySelector("#kat_right3").classList.add("kr3_komind");
+    //    document.querySelector("#kat_right3").classList.remove("wkr1_komind");
     document.querySelector("#kat_left1").classList.add("kl1_komind");
+    //    document.querySelector("#kat_left1").classList.remove("wkr1_komind");
     document.querySelector("#kat_left2").classList.add("kl2_komind");
+    //    document.querySelector("#kat_left2").classList.remove("wkr1_komind");
     document.querySelector("#kat_left3").classList.add("kl3_komind");
+    //    document.querySelector("#kat_left3").classList.remove("wkr1_komind");
 
 
 
@@ -345,13 +382,26 @@ function clickOst() {
         document.querySelector("#lyd2").currentTime = 0;
         document.querySelector("#lyd2").play();
 
-        setTimeout(nyOst, 2000);
+        // setTimeout(nyOst, 2000);
+        console.log(this);
+        this.addEventListener('animationend', nyOst);
 
     }
 
 }
 
+function nyOst() {
+    console.log("nyOst");
+    this.classList = "ost ost_komind";
+    this.addEventListener("click", clickOst);
 
+    //    document.querySelector("#ost").classList.remove("ost_forsvind");
+    //    document.querySelector("#ost").classList.add("ost_komind");
+    //    document.querySelector("#ost2").classList.remove("ost_forsvind");
+    //    document.querySelector("#ost2").classList.add("ost_komind");
+    //    document.querySelector("#ost3").classList.remove("ost_forsvind");
+    //    document.querySelector("#ost3").classList.add("ost_komind");
+}
 
 function ostGone() {
     if (this.classList.contains("ost")) {
@@ -383,12 +433,7 @@ function ostGone() {
 
 }
 
-function nyOst() {
-    document.querySelector("#ost").classList.remove("ost_forsvind");
-    document.querySelector("#ost").classList.add("ost_komind");
-    document.querySelector("#ost2").classList.remove("ost_forsvind");
-    document.querySelector("#ost2").classList.add("ost_komind");
-}
+
 
 
 
@@ -454,7 +499,6 @@ function lifeLeftFc() {
 function gameOver() {
 
     console.log("GAMEOVER");
-
     document.querySelector("#gameover").classList.remove("hide");
 
     document.querySelector("#spiligen").classList.remove("hide");
@@ -468,7 +512,6 @@ function gameOver() {
     document.querySelector("#kat_left2").classList.remove("kl2_komind");
     document.querySelector("#kat_left3").classList.remove("kl3_komind");
     clearTimeout(timeOut);
-
 
 
 
@@ -491,5 +534,4 @@ function levelComplete() {
     document.querySelector("#kat_left1").classList.remove("kl1_komind");
     document.querySelector("#kat_left2").classList.remove("kl2_komind");
     document.querySelector("#kat_left3").classList.remove("kl3_komind");
-
 }

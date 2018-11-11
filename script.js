@@ -59,8 +59,7 @@ function showSettings() {
 
     document.querySelector("#settings").classList.remove("hide");
     document.querySelector("#settingsmenu").classList.add("hide");
-
-
+    document.querySelector("#play").classList.add("hide");
 
     document.querySelector("#musikknap").addEventListener("click", muteMusik);
 
@@ -118,8 +117,6 @@ function hideIngameSettings() {
     document.querySelector("#luk").removeEventListener("click", hideIngameSettings);
 
     startGame();
-
-
 }
 
 
@@ -229,6 +226,7 @@ function closeSettings() {
     document.querySelector("#mutelydknap").removeEventListener("click", unmuteLyd);
 
     document.querySelector("#luk").removeEventListener("click", closeSettings);
+    document.querySelector("#play").classList.remove("hide");
 
 
 }
@@ -481,7 +479,6 @@ function clickOst() {
 
     if (this.classList.contains("ost")) {
 
-
         //        document.querySelector("#minus_points").classList.remove("hide");
         //
         document.querySelector("#minus_points").classList.add("minus");
@@ -495,6 +492,8 @@ function clickOst() {
         // setTimeout(nyOst, 2000);
         console.log(this);
         this.addEventListener('animationend', nyOst);
+
+
 
     }
 
@@ -644,7 +643,7 @@ function gameOver() {
     document.querySelector("#kat_left3").removeEventListener("click", katGone);
     document.querySelector("#intro").classList.remove("fade_out");
     document.querySelector("#intro2").classList.remove("fade_out");
-    document.querySelector("#cool").classList.remove("hide")
+
 
     document.querySelector("#gameoverlyd").currentTime = 0;
     document.querySelector("#gameoverlyd").play();
@@ -695,7 +694,6 @@ function levelComplete() {
     document.querySelector("#kat_left3").removeEventListener("click", katGone);
     document.querySelector("#intro").classList.remove("fade_out");
     document.querySelector("#intro2").classList.remove("fade_out");
-    document.querySelector("#cool").classList.remove("hide")
 
 
     document.querySelector("#levelcompletelyd").currentTime = 0;
@@ -738,8 +736,11 @@ function resetAll() {
     document.querySelector("#ost").classList.add("hide");
     document.querySelector("#ost2").classList.add("hide");
     document.querySelector("#ost3").classList.add("hide");
+    document.querySelector("#cool").classList.remove("hide")
     document.querySelector("#myMusic").pause();
     document.querySelector("#myMusic").currentTime = 0;
+    document.querySelector("#indstillinger").removeEventListener("click", showSettings);
+    document.querySelector("#indstillinger").removeEventListener("click", showIngameSettings);
 
 
 
